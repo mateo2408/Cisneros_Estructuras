@@ -123,6 +123,10 @@ int main()
             }
         }
         break;
+
+    case 6:
+        printf("Gracias por usar el sistema\n");
+        break;
     
     default:
         break;
