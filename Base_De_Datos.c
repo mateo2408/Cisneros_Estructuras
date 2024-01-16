@@ -67,7 +67,22 @@ int main()
         }
         break;
 
-    
+    case 3:
+        printf("Ingrese la matricula del alumno a buscar: ");
+        scanf("%d",&cantidad);
+        for (int i = 0; i < cantidad; i++)
+        {
+            if (alumnos[i].matricula == cantidad)
+            {
+                printf("Datos del alumno %d\n",i+1);
+                printf("Matricula: %d\n",alumnos[i].matricula);
+                printf("Nombre: %s\n",alumnos[i].nombre);
+                printf("Direccion: %s\n",alumnos[i].direccion);
+                printf("Materia: %s\n",alumnos[i].materia);
+                printf("Nota: %.2f\n",alumnos[i].nota);
+            }
+        }
+        break;
     
     default:
         break;
