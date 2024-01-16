@@ -107,6 +107,22 @@ int main()
             }
         }
         break;
+
+    case 5:
+        printf("Ingrese la matricula del alumno a eliminar: ");
+        scanf("%d",&cantidad);
+        for (int i = 0; i < cantidad; i++)
+        {
+            if (alumnos[i].matricula == cantidad)
+            {
+                alumnos[i].matricula = 0;
+                alumnos[i].nombre[0] = '\0';
+                alumnos[i].direccion[0] = '\0';
+                alumnos[i].materia[0] = '\0';
+                alumnos[i].nota = 0;
+            }
+        }
+        break;
     
     default:
         break;
