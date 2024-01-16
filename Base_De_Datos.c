@@ -19,24 +19,45 @@ struct alumno
 int main()
 {
     int cantidad;
-    printf("Ingrese el numero de alumnos: ");
-    scanf("%d",&cantidad);
+    int opcion;
+    printf("Bienvenido al sistema de alumnos\n");
+    printf("1. Ingresar alumnos\n");
+    printf("2. Mostrar alumnos\n");
+    printf("3. Buscar alumno\n");
+    printf("4. Modificar alumno\n");
+    printf("5. Eliminar alumno\n");
+    printf("6. Salir\n");
+    scanf("%d",&opcion);
     struct alumno alumnos[cantidad];
-    printf("Ingrese los datos de los alumnos\n");
     
-    for (int i = 0; i < cantidad; i++)
+    switch (opcion)
     {
-        printf("Ingrese los datos del alumno %d\n",i+1);
-        printf("Matricula: ");
-        gets(alumnos[i].matricula);
-        printf("Nombre: ");
-        gets(alumnos[i].nombre);
-        printf("Direccion: ");
-        gets(alumnos[i].direccion);
-        printf("Materia: ");
-        gets(alumnos[i].materia);
-        printf("Nota: ");
-        scanf("%f",&alumnos[i].nota);
+    case 1:
+        printf("Ingrese el numero de alumnos: ");
+        scanf("%d",&cantidad);
+        printf("Ingrese los datos de los alumnos\n");
+    
+        for (int i = 0; i < cantidad; i++)
+        {
+            printf("Ingrese los datos del alumno %d\n",i+1);
+            printf("Matricula: ");
+            scanf("%d",&alumnos[i].matricula);
+            fflush(stdin);
+            printf("Nombre: ");
+            fgets(alumnos[i].nombre, sizeof(alumnos[i].nombre), stdin);
+            printf("Direccion: ");
+            fgets(alumnos[i].direccion, sizeof(alumnos[i].direccion), stdin);
+            printf("Materia: ");
+            fgets(alumnos[i].materia, sizeof(alumnos[i].materia), stdin);
+            printf("Nota: ");
+            scanf("%f",&alumnos[i].nota);
+            fflush(stdin);
+        }
+        break;
+    
+    
+    default:
+        break;
     }
     
     
