@@ -83,6 +83,30 @@ int main()
             }
         }
         break;
+
+    case 4:
+        printf("Ingrese la matricula del alumno a modificar: ");
+        scanf("%d",&cantidad);
+        for (int i = 0; i < cantidad; i++)
+        {
+            if (alumnos[i].matricula == cantidad)
+            {
+                printf("Ingrese los datos del alumno %d\n",i+1);
+                printf("Matricula: ");
+                scanf("%d",&alumnos[i].matricula);
+                fflush(stdin);
+                printf("Nombre: ");
+                fgets(alumnos[i].nombre, sizeof(alumnos[i].nombre), stdin);
+                printf("Direccion: ");
+                fgets(alumnos[i].direccion, sizeof(alumnos[i].direccion), stdin);
+                printf("Materia: ");
+                fgets(alumnos[i].materia, sizeof(alumnos[i].materia), stdin);
+                printf("Nota: ");
+                scanf("%f",&alumnos[i].nota);
+                fflush(stdin);
+            }
+        }
+        break;
     
     default:
         break;
