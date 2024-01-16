@@ -12,8 +12,8 @@ struct alumno
     int matricula;
     char nombre[50];
     char direccion[50];
-    char materia[50];
-    float nota;
+    char carrera[50];
+    float promedio;
 };
 //Creacion de funcion principal
 int main()
@@ -55,9 +55,9 @@ int main()
                     printf("Direccion: ");
                     fgets(alumnos[i].direccion, sizeof(alumnos[i].direccion), stdin);
                     printf("Materia: ");
-                    fgets(alumnos[i].materia, sizeof(alumnos[i].materia), stdin);
+                    fgets(alumnos[i].carrera, sizeof(alumnos[i].carrera), stdin);
                     printf("Nota: ");
-                    scanf("%f",&alumnos[i].nota);
+                    scanf("%f",&alumnos[i].promedio);
                     fflush(stdin);
                 }
                 break;
@@ -70,8 +70,8 @@ int main()
                     printf("Matricula: %d\n",alumnos[i].matricula);
                     printf("Nombre: %s\n",alumnos[i].nombre);
                     printf("Direccion: %s\n",alumnos[i].direccion);
-                    printf("Materia: %s\n",alumnos[i].materia);
-                    printf("Nota: %.2f\n",alumnos[i].nota);
+                    printf("Materia: %s\n",alumnos[i].carrera);
+                    printf("Nota: %.2f\n",alumnos[i].promedio);
                  }
                 break;
                 //Creacion de busqueda de datos
@@ -86,8 +86,8 @@ int main()
                             printf("Matricula: %d\n",alumnos[i].matricula);
                             printf("Nombre: %s\n",alumnos[i].nombre);
                             printf("Direccion: %s\n",alumnos[i].direccion);
-                            printf("Materia: %s\n",alumnos[i].materia);
-                            printf("Nota: %.2f\n",alumnos[i].nota);
+                            printf("Materia: %s\n",alumnos[i].carrera);
+                            printf("Nota: %.2f\n",alumnos[i].promedio);
                         }
                     }
                 break;
@@ -108,9 +108,9 @@ int main()
                             printf("Direccion: ");
                             fgets(alumnos[i].direccion, sizeof(alumnos[i].direccion), stdin);
                             printf("Materia: ");
-                            fgets(alumnos[i].materia, sizeof(alumnos[i].materia), stdin);
+                            fgets(alumnos[i].carrera, sizeof(alumnos[i].carrera), stdin);
                             printf("Nota: ");
-                            scanf("%f",&alumnos[i].nota);
+                            scanf("%f",&alumnos[i].promedio);
                             fflush(stdin);
                         }
                     }
@@ -126,8 +126,8 @@ int main()
                             alumnos[i].matricula = 0;
                             alumnos[i].nombre[0] = '\0';
                             alumnos[i].direccion[0] = '\0';
-                            alumnos[i].materia[0] = '\0';
-                            alumnos[i].nota = 0;
+                            alumnos[i].carrera[0] = '\0';
+                            alumnos[i].promedio = 0;
                         }
                     }
                 break;
