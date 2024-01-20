@@ -5,8 +5,8 @@ gets();
 puts();
 fflush();
 Nota: No quemas los datos en el codigo*/
-#include<stdio.h>
-//Creacion de estructura
+#include <stdio.h>
+// Creacion de estructura
 struct alumno
 {
     int matricula;
@@ -15,18 +15,18 @@ struct alumno
     char carrera[50];
     float promedio;
 };
-//Creacion de funcion principal
+// Creacion de funcion principal
 int main()
 {
-    //Declaracion de variables
-    int cantidad;
+    // Declaracion de variables
+    int cantidad = 0;
     int opcion;
     printf("Bienvenido al sistema de alumnos\n");
     printf("Ingrese el numero de alumnos: ");
-    scanf("%d",&cantidad);
-    //Creacion de arreglo de estructura
+    scanf("%d", &cantidad);
+    // Creacion de arreglo de estructura
     struct alumno alumnos[cantidad];
-    //Creacion de menu
+    // Creacion de menu
     do
     {
         printf("Seleccione una opcion: \n");
@@ -36,19 +36,72 @@ int main()
         printf("4. Modificar alumno\n");
         printf("5. Eliminar alumno\n");
         printf("6. Salir\n");
-        scanf("%d",&opcion);
-        //Creacion de switch
+        scanf("%d", &opcion);
+        // Creacion de switch
         switch (opcion)
         {
-            //Creacion de ingreso de datos
-            case 1:
-                    printf("Ingrese los datos de los alumnos\n");
-    
-                    for (int i = 0; i < cantidad; i++)
+        // Creacion de ingreso de datos
+        case 1:
+            printf("Ingrese los datos de los alumnos\n");
+
+            for (int i = 0; i < cantidad; i++)
+            {
+                printf("Ingrese los datos del alumno %d\n", i + 1);
+                printf("Matricula: ");
+                scanf("%d", &alumnos[i].matricula);
+                fflush(stdin);
+                printf("Nombre: ");
+                fgets(alumnos[i].nombre, sizeof(alumnos[i].nombre), stdin);
+                printf("Direccion: ");
+                fgets(alumnos[i].direccion, sizeof(alumnos[i].direccion), stdin);
+                printf("Materia: ");
+                fgets(alumnos[i].carrera, sizeof(alumnos[i].carrera), stdin);
+                printf("Nota: ");
+                scanf("%f", &alumnos[i].promedio);
+                fflush(stdin);
+            }
+            break;
+            // Creacion de impresion de datos
+        /*case 2:
+            printf("Los datos de los alumnos son:\n");
+            for (int i = 0; i < cantidad; i++)
+            {
+                printf("Datos del alumno %d\n", i + 1);
+                printf("Matricula: %d\n", alumnos[i].matricula);
+                printf("Nombre: %s\n", alumnos[i].nombre);
+                printf("Direccion: %s\n", alumnos[i].direccion);
+                printf("Materia: %s\n", alumnos[i].carrera);
+                printf("Nota: %.2f\n", alumnos[i].promedio);
+            }
+            break;
+            // Creacion de busqueda de datos
+        case 3:
+            printf("Ingrese la matricula del alumno a buscar: ");
+            scanf("%d", &cantidad);
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].matricula == cantidad)
                 {
-                    printf("Ingrese los datos del alumno %d\n",i+1);
+                    printf("Datos del alumno %d\n", i + 1);
+                    printf("Matricula: %d\n", alumnos[i].matricula);
+                    printf("Nombre: %s\n", alumnos[i].nombre);
+                    printf("Direccion: %s\n", alumnos[i].direccion);
+                    printf("Materia: %s\n", alumnos[i].carrera);
+                    printf("Nota: %.2f\n", alumnos[i].promedio);
+                }
+            }
+            break;
+            // Creacion de modificacion de datos
+        case 4:
+            printf("Ingrese la matricula del alumno a modificar: ");
+            scanf("%d", &cantidad);
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].matricula == cantidad)
+                {
+                    printf("Ingrese los datos del alumno %d\n", i + 1);
                     printf("Matricula: ");
-                    scanf("%d",&alumnos[i].matricula);
+                    scanf("%d", &alumnos[i].matricula);
                     fflush(stdin);
                     printf("Nombre: ");
                     fgets(alumnos[i].nombre, sizeof(alumnos[i].nombre), stdin);
@@ -57,89 +110,60 @@ int main()
                     printf("Materia: ");
                     fgets(alumnos[i].carrera, sizeof(alumnos[i].carrera), stdin);
                     printf("Nota: ");
-                    scanf("%f",&alumnos[i].promedio);
+                    scanf("%f", &alumnos[i].promedio);
                     fflush(stdin);
                 }
-                break;
-                //Creacion de impresion de datos
-            case 2:
-                    printf("Los datos de los alumnos son:\n");
-                    for (int i = 0; i < cantidad; i++)
+            }
+            break;
+            // Creacion de eliminacion de datos
+        case 5:
+            printf("Ingrese la matricula del alumno a eliminar: ");
+            scanf("%d", &cantidad);
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].matricula == cantidad)
                 {
-                    printf("Datos del alumno %d\n",i+1);
-                    printf("Matricula: %d\n",alumnos[i].matricula);
-                    printf("Nombre: %s\n",alumnos[i].nombre);
-                    printf("Direccion: %s\n",alumnos[i].direccion);
-                    printf("Materia: %s\n",alumnos[i].carrera);
-                    printf("Nota: %.2f\n",alumnos[i].promedio);
-                 }
-                break;
-                //Creacion de busqueda de datos
-            case 3:
-                    printf("Ingrese la matricula del alumno a buscar: ");
-                    scanf("%d",&cantidad);
-                    for (int i = 0; i < cantidad; i++)
-                    {
-                        if (alumnos[i].matricula == cantidad)
-                        {
-                            printf("Datos del alumno %d\n",i+1);
-                            printf("Matricula: %d\n",alumnos[i].matricula);
-                            printf("Nombre: %s\n",alumnos[i].nombre);
-                            printf("Direccion: %s\n",alumnos[i].direccion);
-                            printf("Materia: %s\n",alumnos[i].carrera);
-                            printf("Nota: %.2f\n",alumnos[i].promedio);
-                        }
-                    }
-                break;
-                //Creacion de modificacion de datos
-            case 4:
-                    printf("Ingrese la matricula del alumno a modificar: ");
-                    scanf("%d",&cantidad);
-                    for (int i = 0; i < cantidad; i++)
-                    {
-                        if (alumnos[i].matricula == cantidad)
-                        {
-                            printf("Ingrese los datos del alumno %d\n",i+1);
-                            printf("Matricula: ");
-                            scanf("%d",&alumnos[i].matricula);
-                            fflush(stdin);
-                            printf("Nombre: ");
-                            fgets(alumnos[i].nombre, sizeof(alumnos[i].nombre), stdin);
-                            printf("Direccion: ");
-                            fgets(alumnos[i].direccion, sizeof(alumnos[i].direccion), stdin);
-                            printf("Materia: ");
-                            fgets(alumnos[i].carrera, sizeof(alumnos[i].carrera), stdin);
-                            printf("Nota: ");
-                            scanf("%f",&alumnos[i].promedio);
-                            fflush(stdin);
-                        }
-                    }
-                break;
-                //Creacion de eliminacion de datos
-            case 5:
-                    printf("Ingrese la matricula del alumno a eliminar: ");
-                    scanf("%d",&cantidad);
-                    for (int i = 0; i < cantidad; i++)
-                    {
-                        if (alumnos[i].matricula == cantidad)
-                        {
-                            alumnos[i].matricula = 0;
-                            alumnos[i].nombre[0] = '\0';
-                            alumnos[i].direccion[0] = '\0';
-                            alumnos[i].carrera[0] = '\0';
-                            alumnos[i].promedio = 0;
-                        }
-                    }
-                break;
-                //Creacion de salida del programa
-            case 6:
-                    printf("Gracias por usar el sistema\n");
-                break;
-    
-            default:
-                break;
+                    alumnos[i].matricula = 0;
+                    alumnos[i].nombre[0] = '\0';
+                    alumnos[i].direccion[0] = '\0';
+                    alumnos[i].carrera[0] = '\0';
+                    alumnos[i].promedio = 0;
+                }
+            }
+            break;*/
+            // Creacion de salida del programa
+        /*case 6:
+            printf("Gracias por usar el sistema\n");
+            break;*/
+
+        default:
+            break;
         }
     } while (opcion != 6);
+
+    // Creamos el archivo o lo abrimos
+    FILE *ptr;
+    char archivo[12] = {"Alumnos.txt"};
+    ptr = fopen(archivo, "w");
+
+    if (ptr == NULL)
+    {
+        printf("Error al abrir archivo!\n");
+        return 1;
+    }
+
+    // Escribimos en el archivo
+    //fprintf(ptr, "\nMatricula Nombre Direccion Carrera Promedio\n");
+    for (int i = 0; i < cantidad; i++)
+    {
+        fprintf(ptr, "%d  %s  %s  %s  %.2f", alumnos[i].matricula, alumnos[i].nombre, alumnos[i].direccion, alumnos[i].carrera, alumnos[i].promedio);
+    }
+
+    /*fprintf(ptr, "Direccion: %s\n", alumnos[i].direccion);
+    fprintf(ptr, "Carrera: %s\n", alumnos[i].carrera);
+    fprintf(ptr, "Promedio: %.2f\n", alumnos[i].promedio);*/
+
+    // Cerramos cuando acabamos
+    fclose(ptr);
     return 0;
 }
-
